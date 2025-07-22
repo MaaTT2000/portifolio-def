@@ -1,0 +1,386 @@
+/* Definição de variáveis de cor para fácil manutenção (como a Razer faz) */
+:root {
+    --razer-green: #44d62c;
+    --dark-charcoal: #111111;
+    --light-gray: #e5e7eb;
+    --mid-gray: #888888;
+}
+
+/* Reset básico para garantir consistência entre navegadores */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--dark-charcoal);
+    color: var(--light-gray);
+    font-family: "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; /* Uma fonte limpa e moderna */
+}
+
+/* Estilo da Seção Hero */
+.hero {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    min-height: 100vh; /* Ocupa a tela inteira */
+    padding: 2rem;
+}
+
+.hero-title {
+    font-size: 3.5rem; /* 56px */
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.2rem;
+}
+
+.hero-subtitle {
+    margin-top: 1rem;
+    font-size: 1.25rem; /* 20px */
+    font-weight: 600;
+    color: var(--razer-green);
+}
+
+/* Estilo dos botões */
+.button-group {
+    margin-top: 2.5rem;
+    display: flex;
+    justify-content: center;
+    gap: 1rem; /* Espaço entre os botões */
+}
+
+.button {
+    padding: 0.75rem 1.5rem;
+    border: 2px solid;
+    text-decoration: none;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 0.1rem;
+    transition: all 0.3s ease; /* Transição suave para o efeito hover */
+}
+
+.button-primary {
+    border-color: var(--razer-green);
+    color: var(--razer-green);
+}
+
+.button-primary:hover {
+    background-color: var(--razer-green);
+    color: var(--dark-charcoal);
+}
+
+.button-secondary {
+    border-color: var(--mid-gray);
+    color: var(--light-gray);
+}
+
+.button-secondary:hover {
+    border-color: var(--razer-green);
+    color: var(--razer-green);
+}
+
+/* Responsividade para telas menores */
+@media (max-width: 768px) {
+    .hero-title {
+        font-size: 2.5rem;
+    }
+
+    .hero-subtitle {
+        font-size: 1rem;
+    }
+}
+
+/* css/style.css */
+
+/* ... (código anterior do hero e botões) ... */
+
+
+/* Estilos Gerais para Seções de Conteúdo */
+.content-section {
+    max-width: 1200px;
+    margin: 0 auto; /* Centraliza a seção na página */
+    padding: 6rem 2rem; /* Espaçamento interno (cima/baixo e lados) */
+}
+
+.section-title {
+    text-align: center;
+    font-size: 2.5rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.15rem;
+    margin-bottom: 4rem;
+    color: var(--razer-green);
+}
+
+/* Estilos da Seção "Sobre Mim" */
+.about-content {
+    display: flex;
+    align-items: center;
+    gap: 3rem;
+}
+
+.profile-pic {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%; /* Deixa a foto redonda */
+    object-fit: cover; /* Garante que a imagem não se distorça */
+    border: 4px solid var(--razer-green);
+}
+
+.about-content p {
+    flex: 1; /* Faz o parágrafo ocupar o espaço restante */
+    font-size: 1.1rem;
+    line-height: 1.7;
+    color: var(--light-gray);
+}
+
+
+/* Estilos da Galeria de Projetos */
+.project-gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); /* Grid responsivo! */
+    gap: 2rem;
+}
+
+.project-card {
+    background-color: #222;
+    border-radius: 8px;
+    overflow: hidden; /* Garante que a imagem não saia dos cantos arredondados */
+    text-decoration: none;
+    color: var(--light-gray);
+    display: block;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 1px solid #333;
+}
+
+.project-card:hover {
+    transform: translateY(-10px); /* Efeito de "flutuar" */
+    box-shadow: 0 10px 30px -10px var(--razer-green); /* Sombra com a cor da Razer */
+}
+
+.project-image {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+}
+
+.project-info {
+    padding: 1.5rem;
+}
+
+.project-info h3 {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+    color: #fff;
+}
+
+.project-info p {
+    font-size: 1rem;
+    line-height: 1.5;
+    margin-bottom: 1rem;
+}
+
+.project-info span {
+    color: var(--razer-green);
+    font-weight: bold;
+}
+
+/* Ajustes de responsividade para a seção "Sobre" */
+@media (max-width: 768px) {
+    .about-content {
+        flex-direction: column; /* Coloca a foto em cima do texto */
+        text-align: center;
+    }
+
+    .project-gallery {
+        grid-template-columns: 1fr; /* Uma coluna em telas pequenas */
+    }
+}
+
+/* Animação de Fade-in para as seções */
+.content-section {
+    /* ... estilos existentes ... */
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.content-section.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+/* css/style.css */
+
+/* ... (código anterior) ... */
+
+
+/* Estilos da Seção de Contato */
+.contact-intro {
+    text-align: center;
+    max-width: 600px;
+    margin: 0 auto 3rem auto;
+    font-size: 1.1rem;
+    line-height: 1.6;
+}
+
+.contact-links {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 3rem;
+    flex-wrap: wrap; /* Permite que os ícones quebrem a linha em telas pequenas */
+}
+
+.contact-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-decoration: none;
+    color: var(--mid-gray);
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.contact-item:hover {
+    color: var(--razer-green);
+    transform: translateY(-5px);
+}
+
+.contact-item i {
+    font-size: 3rem; /* Tamanho do ícone */
+}
+
+.contact-item span {
+    margin-top: 1rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 0.1rem;
+    font-size: 0.9rem;
+}
+
+/* Estilos do Rodapé */
+.footer {
+    text-align: center;
+    padding: 2rem;
+    background-color: #000;
+    border-top: 1px solid #333;
+    font-size: 0.9rem;
+    color: var(--mid-gray);
+}
+
+/* Estilos do Botão Voltar ao Topo */
+#back-to-top {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 50px;
+    height: 50px;
+    background-color: var(--razer-green);
+    color: var(--dark-charcoal);
+    border-radius: 50%;
+    text-align: center;
+    line-height: 50px;
+    font-size: 1.5rem;
+    text-decoration: none;
+    transition: opacity 0.4s ease, visibility 0.4s ease;
+    
+    /* Começa invisível */
+    opacity: 0;
+    visibility: hidden;
+}
+
+#back-to-top.visible {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* css/style.css */
+
+/* Estilos do Efeito Chroma */
+.footer {
+    position: relative; /* Necessário para posicionar a linha chroma */
+    overflow: hidden; /* Esconde a parte do gradiente que fica fora */
+}
+
+.chroma-line {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 3px; /* Espessura da linha */
+    background: linear-gradient(
+        90deg, 
+        #ff0000, 
+        #ff7f00, 
+        #ffff00, 
+        #00ff00, 
+        #0000ff, 
+        #4b0082, 
+        #8b00ff
+    );
+    background-size: 400% 100%;
+    animation: chroma-animation 10s linear infinite;
+}
+
+/* Animação que move o gradiente */
+@keyframes chroma-animation {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+/* css/style.css */
+
+/* ... (todo o seu CSS existente) ... */
+
+/* ================== ESTILOS DO SPRINT 3 ================== */
+
+/* Estilos do Efeito Chroma no Rodapé */
+.footer {
+    position: relative; /* Necessário para posicionar a linha chroma */
+    overflow: hidden; /* Esconde a parte do gradiente que fica fora */
+}
+
+.chroma-line {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 3px; /* Espessura da linha */
+    background: linear-gradient(
+        90deg, 
+        #ff0000, 
+        #ff7f00, 
+        #ffff00, 
+        #00ff00, 
+        #0000ff, 
+        #4b0082, 
+        #8b00ff
+    );
+    background-size: 400% 100%;
+    animation: chroma-animation 10s linear infinite;
+}
+
+/* Animação que move o gradiente */
+@keyframes chroma-animation {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+.contact-item[href*="wa.me"]:hover {
+    color: #25D366; /* Cor oficial do WhatsApp */
+}
