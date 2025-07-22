@@ -384,3 +384,13 @@ body {
 .contact-item[href*="wa.me"]:hover {
     color: #25D366; /* Cor oficial do WhatsApp */
 }
+
+/* style.css */
+.about-text-content {
+    flex: 1;
+}
+
+.cv-button {
+    margin-top: 2rem;
+    display: inline-block; /* Garante que a margem funcione corretamente */
+}
