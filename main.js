@@ -2,7 +2,7 @@
 
 document.addEventListener('DOMContentLoaded', () => {
 
-    // --- 1. ANIMAÇÃO DE FADE-IN AO ROLAR A PÁGINA ---
+    // --- ANIMAÇÃO DE FADE-IN AO ROLAR A PÁGINA ---
     const animatedElements = document.querySelectorAll('.content-section');
     if ('IntersectionObserver' in window) {
         const observer = new IntersectionObserver((entries) => {
@@ -17,28 +17,17 @@ document.addEventListener('DOMContentLoaded', () => {
         animatedElements.forEach(element => observer.observe(element));
     }
 
-    // --- 2. SCROLL SUAVE PARA LINKS ÂNCORA ---
-    const anchorLinks = document.querySelectorAll('a[href^="#"]');
-    anchorLinks.forEach(link => {
-        link.addEventListener('click', function(e) {
-            e.preventDefault();
-            let targetId = this.getAttribute('href');
-            // Se o href for apenas '#', vai para o topo
-            let targetElement = targetId === '#' ? document.body : document.querySelector(targetId);
-            
-            if (targetElement) {
-                targetElement.scrollIntoView({
-                    behavior: 'smooth'
-                });
-            }
-        });
-    });
-
-    // --- 3. BOTÃO "VOLTAR AO TOPO" ---
+    // --- BOTÃO "VOLTAR AO TOPO" ---
     const backToTopButton = document.getElementById('back-to-top');
     if (backToTopButton) {
+        // Evento de clique para rolagem suave (opcional, já que o CSS faz isso)
+        backToTopButton.addEventListener('click', (e) => {
+            e.preventDefault();
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+
+        // Evento de rolagem para mostrar/esconder o botão
         window.addEventListener('scroll', () => {
-            // Mostra o botão após rolar 300 pixels
             if (window.scrollY > 300) {
                 backToTopButton.classList.add('visible');
             } else {
@@ -46,4 +35,17 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     }
+
+    // ===================================================================
+    //      NOVA CONFIGURAÇÃO DO LIGHTBOX (A SOLUÇÃO)
+    // ===================================================================
+    if (typeof lightbox !== 'undefined') {
+        lightbox.option({
+            'resizeDuration': 200,
+            'wrapAround': true, // Permite navegar da última imagem para a primeira
+            'albumLabel': "Imagem %1 de %2", // Traduz o texto
+            'fadeDuration': 300
+        });
+    }
+
 });
