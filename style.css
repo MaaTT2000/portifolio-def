@@ -1,4 +1,4 @@
-/* Definição de variáveis de cor para fácil manutenção (como a Razer faz) */
+/* Definição de variáveis de cor para fácil manutenção */
 :root {
     --razer-green: #44d62c;
     --dark-charcoal: #111111;
@@ -13,10 +13,14 @@
     box-sizing: border-box;
 }
 
+html {
+    scroll-behavior: smooth; /* Habilita o scroll suave nativo */
+}
+
 body {
     background-color: var(--dark-charcoal);
     color: var(--light-gray);
-    font-family: "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; /* Uma fonte limpa e moderna */
+    font-family: "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
 }
 
 /* Estilo da Seção Hero */
@@ -25,12 +29,12 @@ body {
     align-items: center;
     justify-content: center;
     text-align: center;
-    min-height: 100vh; /* Ocupa a tela inteira */
+    min-height: 100vh;
     padding: 2rem;
 }
 
 .hero-title {
-    font-size: 3.5rem; /* 56px */
+    font-size: 3.5rem;
     font-weight: 800;
     text-transform: uppercase;
     letter-spacing: 0.2rem;
@@ -38,7 +42,7 @@ body {
 
 .hero-subtitle {
     margin-top: 1rem;
-    font-size: 1.25rem; /* 20px */
+    font-size: 1.25rem;
     font-weight: 600;
     color: var(--razer-green);
 }
@@ -48,7 +52,7 @@ body {
     margin-top: 2.5rem;
     display: flex;
     justify-content: center;
-    gap: 1rem; /* Espaço entre os botões */
+    gap: 1rem;
 }
 
 .button {
@@ -58,7 +62,10 @@ body {
     font-weight: bold;
     text-transform: uppercase;
     letter-spacing: 0.1rem;
-    transition: all 0.3s ease; /* Transição suave para o efeito hover */
+    transition: all 0.3s ease;
+    display: inline-flex; /* Para alinhar o ícone com o texto */
+    align-items: center;
+    gap: 0.5rem; /* Espaço entre o ícone e o texto */
 }
 
 .button-primary {
@@ -81,27 +88,19 @@ body {
     color: var(--razer-green);
 }
 
-/* Responsividade para telas menores */
-@media (max-width: 768px) {
-    .hero-title {
-        font-size: 2.5rem;
-    }
-
-    .hero-subtitle {
-        font-size: 1rem;
-    }
-}
-
-/* css/style.css */
-
-/* ... (código anterior do hero e botões) ... */
-
-
 /* Estilos Gerais para Seções de Conteúdo */
 .content-section {
     max-width: 1200px;
-    margin: 0 auto; /* Centraliza a seção na página */
-    padding: 6rem 2rem; /* Espaçamento interno (cima/baixo e lados) */
+    margin: 0 auto;
+    padding: 6rem 2rem;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.content-section.is-visible {
+    opacity: 1;
+    transform: translateY(0);
 }
 
 .section-title {
@@ -122,52 +121,67 @@ body {
 }
 
 .profile-pic {
-    width: 200px;
-    height: 200px;
-    border-radius: 50%; /* Deixa a foto redonda */
-    object-fit: cover; /* Garante que a imagem não se distorça */
+    width: 250px;
+    height: 250px;
+    border-radius: 50%;
+    object-fit: cover;
     border: 4px solid var(--razer-green);
 }
 
-.about-content p {
-    flex: 1; /* Faz o parágrafo ocupar o espaço restante */
+.about-text-content {
+    flex: 1;
+}
+
+.about-text-content p {
     font-size: 1.1rem;
     line-height: 1.7;
     color: var(--light-gray);
 }
 
+.cv-button {
+    margin-top: 2rem;
+    display: inline-flex;
+}
 
-/* Estilos da Galeria de Projetos */
+/* Estilos da Galeria de Projetos com Lightbox */
 .project-gallery {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); /* Grid responsivo! */
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
     gap: 2rem;
 }
 
-.project-card {
+.project-card-wrapper {
     background-color: #222;
     border-radius: 8px;
-    overflow: hidden; /* Garante que a imagem não saia dos cantos arredondados */
-    text-decoration: none;
-    color: var(--light-gray);
-    display: block;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
     border: 1px solid #333;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.project-card:hover {
-    transform: translateY(-10px); /* Efeito de "flutuar" */
-    box-shadow: 0 10px 30px -10px var(--razer-green); /* Sombra com a cor da Razer */
+.project-card-wrapper:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 30px -10px var(--razer-green);
 }
 
-.project-image {
+.project-card-wrapper .project-image {
     width: 100%;
     height: 220px;
     object-fit: cover;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.project-card-wrapper a:hover .project-image {
+    transform: scale(1.05);
 }
 
 .project-info {
     padding: 1.5rem;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
 }
 
 .project-info h3 {
@@ -179,42 +193,20 @@ body {
 .project-info p {
     font-size: 1rem;
     line-height: 1.5;
-    margin-bottom: 1rem;
+    flex-grow: 1;
 }
 
-.project-info span {
+.project-link, .project-link-disabled {
     color: var(--razer-green);
     font-weight: bold;
+    text-decoration: none;
+    display: inline-block;
+    margin-top: 1rem;
 }
 
-/* Ajustes de responsividade para a seção "Sobre" */
-@media (max-width: 768px) {
-    .about-content {
-        flex-direction: column; /* Coloca a foto em cima do texto */
-        text-align: center;
-    }
-
-    .project-gallery {
-        grid-template-columns: 1fr; /* Uma coluna em telas pequenas */
-    }
+.project-link:hover {
+    text-decoration: underline;
 }
-
-/* Animação de Fade-in para as seções */
-.content-section {
-    /* ... estilos existentes ... */
-    opacity: 0;
-    transform: translateY(20px);
-    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
-}
-
-.content-section.is-visible {
-    opacity: 1;
-    transform: translateY(0);
-}
-/* css/style.css */
-
-/* ... (código anterior) ... */
-
 
 /* Estilos da Seção de Contato */
 .contact-intro {
@@ -230,7 +222,7 @@ body {
     justify-content: center;
     align-items: center;
     gap: 3rem;
-    flex-wrap: wrap; /* Permite que os ícones quebrem a linha em telas pequenas */
+    flex-wrap: wrap;
 }
 
 .contact-item {
@@ -247,8 +239,12 @@ body {
     transform: translateY(-5px);
 }
 
+.contact-item[href*="wa.me"]:hover {
+    color: #25D366;
+}
+
 .contact-item i {
-    font-size: 3rem; /* Tamanho do ícone */
+    font-size: 3rem;
 }
 
 .contact-item span {
@@ -259,7 +255,7 @@ body {
     font-size: 0.9rem;
 }
 
-/* Estilos do Rodapé */
+/* Estilos do Rodapé e Efeito Chroma */
 .footer {
     text-align: center;
     padding: 2rem;
@@ -267,6 +263,25 @@ body {
     border-top: 1px solid #333;
     font-size: 0.9rem;
     color: var(--mid-gray);
+    position: relative;
+    overflow: hidden;
+}
+
+.chroma-line {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: linear-gradient(90deg, #ff0000, #ff7f00, #ffff00, #00ff00, #0000ff, #4b0082, #8b00ff);
+    background-size: 400% 100%;
+    animation: chroma-animation 10s linear infinite;
+}
+
+@keyframes chroma-animation {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
 }
 
 /* Estilos do Botão Voltar ao Topo */
@@ -284,8 +299,6 @@ body {
     font-size: 1.5rem;
     text-decoration: none;
     transition: opacity 0.4s ease, visibility 0.4s ease;
-    
-    /* Começa invisível */
     opacity: 0;
     visibility: hidden;
 }
@@ -295,102 +308,236 @@ body {
     visibility: visible;
 }
 
-/* css/style.css */
-
-/* Estilos do Efeito Chroma */
-.footer {
-    position: relative; /* Necessário para posicionar a linha chroma */
-    overflow: hidden; /* Esconde a parte do gradiente que fica fora */
+/* Estilos para o Lightbox */
+.lb-data .lb-caption, .lb-data .lb-number {
+    color: #ccc;
 }
 
-.chroma-line {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 3px; /* Espessura da linha */
-    background: linear-gradient(
-        90deg, 
-        #ff0000, 
-        #ff7f00, 
-        #ffff00, 
-        #00ff00, 
-        #0000ff, 
-        #4b0082, 
-        #8b00ff
-    );
-    background-size: 400% 100%;
-    animation: chroma-animation 10s linear infinite;
-}
+/* Responsividade */
+@media (max-width: 768px) {
+    .hero-title { font-size: 2.5rem; }
+    .hero-subtitle { font-size: 1rem; }
 
-/* Animação que move o gradiente */
-@keyframes chroma-animation {
-    0% {
-        background-position: 0% 50%;
+    .about-content {
+        flex-direction: column;
+        text-align: center;
     }
-    50% {
-        background-position: 100% 50%;
+
+    .project-gallery {
+        grid-template-columns: 1fr;
     }
-    100% {
-        background-position: 0% 50%;
-    }
-}
-
-/* css/style.css */
-
-/* ... (todo o seu CSS existente) ... */
-
-/* ================== ESTILOS DO SPRINT 3 ================== */
-
-/* Estilos do Efeito Chroma no Rodapé */
-.footer {
-    position: relative; /* Necessário para posicionar a linha chroma */
-    overflow: hidden; /* Esconde a parte do gradiente que fica fora */
-}
-
-.chroma-line {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 3px; /* Espessura da linha */
-    background: linear-gradient(
-        90deg, 
-        #ff0000, 
-        #ff7f00, 
-        #ffff00, 
-        #00ff00, 
-        #0000ff, 
-        #4b0082, 
-        #8b00ff
-    );
-    background-size: 400% 100%;
-    animation: chroma-animation 10s linear infinite;
-}
-
-/* Animação que move o gradiente */
-@keyframes chroma-animation {
-    0% {
-        background-position: 0% 50%;
-    }
-    50% {
-        background-position: 100% 50%;
-    }
-    100% {
-        background-position: 0% 50%;
-    }
-}
-
-.contact-item[href*="wa.me"]:hover {
-    color: #25D366; /* Cor oficial do WhatsApp */
 }
 
 /* style.css */
-.about-text-content {
-    flex: 1;
+
+/* ... (seu CSS existente) ... */
+
+/* Garantias para a visibilidade do botão de fechar do Lightbox */
+.lb-outerContainer .lb-close {
+    opacity: 0 !important; /* Garante que seja visível */
+    transition: opacity 0.3s ease;
 }
 
-.cv-button {
-    margin-top: 2rem;
-    display: inline-block; /* Garante que a margem funcione corretamente */
+.lb-outerContainer .lb-close:hover {
+    opacity: 1 !important; /* Totalmente visível no hover */
+}
+
+/* =================================================================== */
+/*          CORREÇÃO DE POSICIONAMENTO PARA O LIGHTBOX                 */
+/* =================================================================== */
+
+/* Garante que o fundo preto (overlay) cubra toda a tela e fique no topo */
+#lightboxOverlay {
+    position: fixed !important; /* Força o posicionamento fixo na tela */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 9998; /* Um z-index muito alto */
+    transform: none !important; /* Remove qualquer transform herdado */
+}
+
+/* Garante que o container da imagem fique centralizado e no topo */
+#lightbox {
+    position: fixed !important; /* Força o posicionamento fixo */
+    top: 50% !important;
+    left: 50% !important;
+    transform: translate(-50%, -50%) !important; /* Técnica clássica de centralização */
+    z-index: 9999; /* Z-index ainda mais alto que o overlay */
+}
+
+/* Garante que a imagem em si não tenha transforms estranhos */
+#lightbox .lb-image {
+    transform: none !important;
+}
+
+/* =================================================================== */
+/*          ESTILOS PARA AS PÁGINAS DE DETALHES DO PROJETO             */
+/* =================================================================== */
+
+.project-header {
+    padding: 2rem;
+    text-align: left;
+}
+
+.back-to-portfolio-link {
+    color: var(--mid-gray);
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+.back-to-portfolio-link:hover {
+    color: var(--razer-green);
+}
+
+.back-to-portfolio-link i {
+    margin-right: 0.5rem;
+}
+
+.project-detail-section {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem 2rem 6rem 2rem;
+}
+
+.project-detail-title {
+    font-size: 3rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    color: var(--razer-green);
+    text-align: center;
+}
+
+.project-detail-subtitle {
+    text-align: center;
+    font-size: 1.2rem;
+    color: var(--light-gray);
+    margin-bottom: 4rem;
+}
+
+.project-detail-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    align-items: start;
+}
+
+.project-image-gallery img {
+    width: 100%;
+    border-radius: 8px;
+    margin-bottom: 1rem;
+    border: 1px solid #444;
+}
+
+/* =================================================================== */
+/*             ESTILOS ATUALIZADOS PARA OS CARDS DE PROJETO            */
+/* =================================================================== */
+
+/* Remove o sublinhado roxo e define o comportamento do card como um bloco */
+.project-card {
+    background-color: #222;
+    border-radius: 8px;
+    overflow: hidden;
+    text-decoration: none; /* Remove o sublinhado */
+    color: var(--light-gray); /* Define a cor do texto padrão */
+    display: block; /* Faz o link se comportar como um bloco */
+    border: 1px solid #333;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Efeito hover que já tínhamos */
+.project-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 30px -10px var(--razer-green);
+}
+
+/* Garante que a imagem preencha o espaço corretamente */
+.project-card .project-image {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+}
+
+/* Estilização da área de informações dentro do card */
+.project-card .project-info {
+    padding: 1.5rem;
+}
+
+.project-card .project-info h3 {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+    color: #fff; /* Título do projeto em branco */
+}
+
+.project-card .project-info p {
+    font-size: 1rem;
+    line-height: 1.5;
+    margin-bottom: 1rem;
+    color: var(--light-gray); /* Cor do parágrafo */
+}
+
+/* Estilo para o "Ver detalhes" */
+.project-card .project-info span {
+    color: var(--razer-green);
+    font-weight: bold;
+}
+
+.image-caption {
+    font-size: 0.9rem;
+    color: var(--mid-gray);
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.project-text-details h2 {
+    font-size: 1.8rem;
+    color: var(--razer-green);
+    margin-bottom: 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid #333;
+}
+
+.project-text-details p {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    margin-bottom: 2rem;
+}
+
+.tech-stack {
+    background-color: #222;
+    padding: 1.5rem;
+    border-radius: 8px;
+    margin-bottom: 2rem;
+}
+
+.tech-stack h3 {
+    margin-bottom: 1rem;
+}
+
+.tech-stack ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.tech-stack li {
+    background-color: #333;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    font-weight: bold;
+}
+
+.tech-stack li i {
+    margin-right: 0.5rem;
+    color: var(--razer-green);
+}
+
+/* Responsividade para a página de projeto */
+@media (max-width: 900px) {
+    .project-detail-content {
+        grid-template-columns: 1fr;
+    }
 }
