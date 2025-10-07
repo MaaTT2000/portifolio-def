@@ -37,7 +37,7 @@ body {
     font-size: clamp(2.5rem, 5vw, 4rem); /* Fonte responsiva */
     font-weight: 800;
     text-transform: uppercase;
-    letter-spacing: 0.2rem;
+    letter-spacing: 0.1rem;
 }
 
 .hero-subtitle {
