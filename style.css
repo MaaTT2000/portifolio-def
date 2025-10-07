@@ -198,16 +198,23 @@ body {
     flex-grow: 1;
 }
 
-.project-link, .project-link-disabled {
+.project-link,
+.project-link-disabled {
     color: var(--razer-green);
     font-weight: bold;
     text-decoration: none;
     display: inline-block;
     margin-top: 1rem;
+    transition: color 0.3s ease;
 }
 
-.project-link:hover {
-    text-decoration: underline;
+.project-card-wrapper:hover .project-link {
+    color: #fff;
+}
+
+.project-link-disabled {
+    color: var(--mid-gray);
+    cursor: not-allowed;
 }
 
 /* Estilos da Seção de Contato */
@@ -457,16 +464,6 @@ body {
 }
 
 /* Estilo para o "Ver detalhes" */
-.project-card .project-info span {
-    display: block;
-    margin-top: 1rem;
-    color: var(--razer-green);
-    font-weight: bold;
-    transition: color 0.3s ease;
-}
-.project-card:hover .project-info span {
-    color: #fff;
-}
 
 .image-caption {
     font-size: 0.9rem;
