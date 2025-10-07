@@ -37,14 +37,11 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // ===================================================================
-    //      CONFIGURAÇÃO DO LIGHTBOX
+    //      CONFIGURAÇÃO DO FANCYBOX (substituindo o Lightbox)
     // ===================================================================
-    if (typeof lightbox !== 'undefined') {
-        lightbox.option({
-            'resizeDuration': 200,
-            'wrapAround': true, // Permite navegar da última imagem para a primeira
-            'albumLabel': "Imagem %1 de %2", // Traduz o texto
-            'fadeDuration': 300
+    if (typeof Fancybox !== 'undefined') {
+        Fancybox.bind("[data-fancybox]", {
+            // Suas opções customizadas do Fancybox podem ir aqui
         });
     }
 
