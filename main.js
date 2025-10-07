@@ -37,7 +37,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // ===================================================================
-    //      NOVA CONFIGURAÇÃO DO LIGHTBOX (A SOLUÇÃO)
+    //      CONFIGURAÇÃO DO LIGHTBOX
     // ===================================================================
     if (typeof lightbox !== 'undefined') {
         lightbox.option({

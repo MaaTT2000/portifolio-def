@@ -8,6 +8,8 @@
     <!-- ATENÇÃO AOS CAMINHOS: usamos ../ para voltar um nível -->
     <link rel="icon" type="image/x-icon" href="../favicon.ico">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <!-- CSS do Lightbox -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.4/css/lightbox.min.css" integrity="sha512-ZKX+BvQihRJPA8CROKBhDNvoc2aDMOdAlcm7TUQY+35XYtrd3yh95QOOhsPDQY99L4+BvADNzoW64TxVosODZQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="../style.css">
 </head>
 
@@ -29,13 +31,19 @@
             <div class="project-detail-content">
                 <!-- Coluna de Imagens -->
                 <div class="project-image-gallery">
-                    <img src="../gerador1.png" alt="Visão geral da interface do Gerador de DXF">
+                    <a href="../gerador1.png" data-lightbox="gerador-dxf-gallery" data-title="Tela principal da aplicação.">
+                        <img src="../gerador1.png" alt="Visão geral da interface do Gerador de DXF">
+                    </a>
                     <p class="image-caption">Tela principal da aplicação.</p>
                     
-                    <img src="../interface-pt2.png" alt="Detalhe de uma funcionalidade">
+                    <a href="../interface-pt2.png" data-lightbox="gerador-dxf-gallery" data-title="Detalhe da funcionalidade de furação automática / furação manual.">
+                        <img src="../interface-pt2.png" alt="Detalhe de uma funcionalidade">
+                    </a>
                     <p class="image-caption">Detalhe da funcionalidade de furação automática / furação manual.</p>
 
-                    <img src="../interface-pt3.png" alt="Detalhe de uma funcionalidade">
+                    <a href="../interface-pt3.png" data-lightbox="gerador-dxf-gallery" data-title="Opção para atribuir bloco de informações nas peças (Calcula peso com base na espessura).">
+                        <img src="../interface-pt3.png" alt="Detalhe de uma funcionalidade">
+                    </a>
                     <p class="image-caption">Opção para atribuir bloco de informações nas peças (Calcula peso com base na espessura).</p>
                 </div>
 
@@ -76,5 +84,11 @@
         <p>© 2025 Matheus A Ribeiro. Todos os direitos reservados.</p>
     </footer>
 
+    <!-- SCRIPTS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.4/js/lightbox.min.js" integrity="sha512-Ixzuzfxv1EqafeQlTCufWfaC6ful6WFqIz4G+dWvK0beHw0NVJwvCKSgafpy5gwNqKmgUfIBraVwkKI+Cz0SEQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script>
+        lightbox.option({ 'resizeDuration': 200, 'wrapAround': true, 'albumLabel': "Imagem %1 de %2", 'fadeDuration': 300 });
+    </script>
 </body>
 </html>
