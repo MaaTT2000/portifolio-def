@@ -1,8 +1,8 @@
 /* Definição de variáveis de cor para fácil manutenção */
 :root {
     --razer-green: #44d62c;
-    --dark-charcoal: #111111;
-    --light-gray: #e5e7eb;
+    --dark-charcoal: #1a1a1a; /* Um pouco mais suave que o preto puro */
+    --light-gray: #f0f2f5; /* Um branco-gelo mais suave */
     --mid-gray: #888888;
 }
 
@@ -20,7 +20,7 @@ html {
 body {
     background-color: var(--dark-charcoal);
     color: var(--light-gray);
-    font-family: "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    font-family: "Segoe UI", Roboto, -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
 }
 
 /* Estilo da Seção Hero */
@@ -34,15 +34,15 @@ body {
 }
 
 .hero-title {
-    font-size: 3.5rem;
+    font-size: clamp(2.5rem, 5vw, 4rem); /* Fonte responsiva */
     font-weight: 800;
     text-transform: uppercase;
     letter-spacing: 0.2rem;
 }
 
 .hero-subtitle {
-    margin-top: 1rem;
-    font-size: 1.25rem;
+    margin-top: 1.5rem;
+    font-size: clamp(1.1rem, 2.5vw, 1.35rem);
     font-weight: 600;
     color: var(--razer-green);
 }
@@ -61,7 +61,7 @@ body {
     text-decoration: none;
     font-weight: bold;
     text-transform: uppercase;
-    letter-spacing: 0.1rem;
+    letter-spacing: 0.08rem;
     transition: all 0.3s ease;
     display: inline-flex; /* Para alinhar o ícone com o texto */
     align-items: center;
@@ -76,6 +76,7 @@ body {
 .button-primary:hover {
     background-color: var(--razer-green);
     color: var(--dark-charcoal);
+    transform: translateY(-3px);
 }
 
 .button-secondary {
@@ -86,6 +87,7 @@ body {
 .button-secondary:hover {
     border-color: var(--razer-green);
     color: var(--razer-green);
+    transform: translateY(-3px);
 }
 
 /* Estilos Gerais para Seções de Conteúdo */
@@ -108,7 +110,7 @@ body {
     font-size: 2.5rem;
     font-weight: 700;
     text-transform: uppercase;
-    letter-spacing: 0.15rem;
+    letter-spacing: 0.1rem;
     margin-bottom: 4rem;
     color: var(--razer-green);
 }
@@ -134,7 +136,7 @@ body {
 
 .about-text-content p {
     font-size: 1.1rem;
-    line-height: 1.7;
+    line-height: 1.8; /* Melhor legibilidade */
     color: var(--light-gray);
 }
 
@@ -143,7 +145,7 @@ body {
     display: inline-flex;
 }
 
-/* Estilos da Galeria de Projetos com Lightbox */
+/* Estilos da Galeria de Projetos */
 .project-gallery {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
@@ -151,7 +153,7 @@ body {
 }
 
 .project-card-wrapper {
-    background-color: #222;
+    background-color: #252525;
     border-radius: 8px;
     overflow: hidden;
     display: flex;
@@ -162,7 +164,7 @@ body {
 
 .project-card-wrapper:hover {
     transform: translateY(-10px);
-    box-shadow: 0 10px 30px -10px var(--razer-green);
+    box-shadow: 0 12px 24px -12px rgba(68, 214, 44, 0.5);
 }
 
 .project-card-wrapper .project-image {
@@ -187,7 +189,7 @@ body {
 .project-info h3 {
     font-size: 1.5rem;
     margin-bottom: 0.5rem;
-    color: #fff;
+    color: var(--light-gray);
 }
 
 .project-info p {
@@ -235,7 +237,7 @@ body {
 }
 
 .contact-item:hover {
-    color: var(--razer-green);
+    color: var(--light-gray);
     transform: translateY(-5px);
 }
 
@@ -243,8 +245,13 @@ body {
     color: #25D366;
 }
 
+.contact-item:hover i {
+    color: var(--razer-green);
+}
+
 .contact-item i {
     font-size: 3rem;
+    transition: color 0.3s ease;
 }
 
 .contact-item span {
@@ -259,7 +266,7 @@ body {
 .footer {
     text-align: center;
     padding: 2rem;
-    background-color: #000;
+    background-color: #111;
     border-top: 1px solid #333;
     font-size: 0.9rem;
     color: var(--mid-gray);
@@ -436,7 +443,7 @@ body {
 
 /* Remove o sublinhado roxo e define o comportamento do card como um bloco */
 .project-card {
-    background-color: #222;
+    background-color: #252525;
     border-radius: 8px;
     overflow: hidden;
     text-decoration: none; /* Remove o sublinhado */
@@ -449,7 +456,7 @@ body {
 /* Efeito hover que já tínhamos */
 .project-card:hover {
     transform: translateY(-10px);
-    box-shadow: 0 10px 30px -10px var(--razer-green);
+    box-shadow: 0 12px 24px -12px rgba(68, 214, 44, 0.5);
 }
 
 /* Garante que a imagem preencha o espaço corretamente */
@@ -460,12 +467,16 @@ body {
 }
 
 /* Estilização da área de informações dentro do card */
-.project-card .project-info {
+.project-card {
+    display: flex;
+    flex-direction: column;
+}
+ .project-card .project-info {
     padding: 1.5rem;
+    flex-grow: 1; /* Faz esta área crescer para preencher o espaço */
 }
 
 .project-card .project-info h3 {
-    font-size: 1.5rem;
     margin-bottom: 0.5rem;
     color: #fff; /* Título do projeto em branco */
 }
@@ -473,14 +484,20 @@ body {
 .project-card .project-info p {
     font-size: 1rem;
     line-height: 1.5;
-    margin-bottom: 1rem;
+    flex-grow: 1; /* Empurra o span para baixo */
     color: var(--light-gray); /* Cor do parágrafo */
 }
 
 /* Estilo para o "Ver detalhes" */
 .project-card .project-info span {
+    display: block;
+    margin-top: 1rem;
     color: var(--razer-green);
     font-weight: bold;
+    transition: color 0.3s ease;
+}
+.project-card:hover .project-info span {
+    color: #fff;
 }
 
 .image-caption {
@@ -505,7 +522,7 @@ body {
 }
 
 .tech-stack {
-    background-color: #222;
+    background-color: #252525;
     padding: 1.5rem;
     border-radius: 8px;
     margin-bottom: 2rem;
