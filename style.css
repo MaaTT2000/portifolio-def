@@ -1,10 +1,9 @@
 /* Definição de variáveis de cor para fácil manutenção */
 :root {
     --razer-green: #44d62c;
-    --razer-green-glow: rgba(68, 214, 44, 0.5);
     --dark-charcoal: #1a1a1a; /* Um pouco mais suave que o preto puro */
     --light-gray: #f0f2f5; /* Um branco-gelo mais suave */
-    --mid-gray: #999;
+    --mid-gray: #888888;
 }
 
 /* Reset básico para garantir consistência entre navegadores */
@@ -19,24 +18,9 @@ html {
 }
 
 body {
-    background-color: #111; /* Um preto ainda mais profundo para o fundo */
+    background-color: var(--dark-charcoal);
     color: var(--light-gray);
     font-family: "Segoe UI", Roboto, -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
-    /* Animação de fundo sutil e oscilante */
-    background-image: radial-gradient(circle at 50% 50%, rgba(26, 26, 26, 0.9) 0%, #111 70%);
-    animation: subtle-pulse 15s infinite ease-in-out;
-}
-
-@keyframes subtle-pulse {
-    0% {
-        background-size: 100% 100%;
-    }
-    50% {
-        background-size: 150% 150%;
-    }
-    100% {
-        background-size: 100% 100%;
-    }
 }
 
 /* Estilo da Seção Hero */
@@ -53,7 +37,7 @@ body {
     font-size: clamp(2.5rem, 5vw, 4rem); /* Fonte responsiva */
     font-weight: 800;
     text-transform: uppercase;
-    letter-spacing: 0.15rem;
+    letter-spacing: 0.1rem;
 }
 
 .hero-subtitle {
@@ -87,14 +71,12 @@ body {
 .button-primary {
     border-color: var(--razer-green);
     color: var(--razer-green);
-    box-shadow: 0 0 10px rgba(68, 214, 44, 0);
 }
 
 .button-primary:hover {
     background-color: var(--razer-green);
     color: var(--dark-charcoal);
     transform: translateY(-3px);
-    box-shadow: 0 4px 20px var(--razer-green-glow);
 }
 
 .button-secondary {
@@ -105,7 +87,6 @@ body {
 .button-secondary:hover {
     border-color: var(--razer-green);
     color: var(--razer-green);
-    box-shadow: 0 4px 20px rgba(68, 214, 44, 0.2);
     transform: translateY(-3px);
 }
 
@@ -177,14 +158,13 @@ body {
     overflow: hidden;
     display: flex;
     flex-direction: column;
-    border: 1px solid #3a3a3a;
-    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+    border: 1px solid #333;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .project-card-wrapper:hover {
     transform: translateY(-10px);
-    box-shadow: 0 12px 24px -12px var(--razer-green-glow);
-    border-color: var(--razer-green);
+    box-shadow: 0 12px 24px -12px rgba(68, 214, 44, 0.5);
 }
 
 .project-card-wrapper .project-image {
@@ -193,10 +173,6 @@ body {
     object-fit: cover;
     cursor: pointer;
     transition: transform 0.3s ease;
-}
-
-.project-card-wrapper a:hover .project-image {
-    transform: scale(1.05);
 }
 
 .project-info {
@@ -223,13 +199,9 @@ body {
     color: var(--razer-green);
     font-weight: bold;
     text-decoration: none;
-    display: inline-block;
+    display: block;
     margin-top: 1rem;
     transition: color 0.3s ease;
-}
-
-.project-card-wrapper:hover .project-link {
-    color: #fff;
 }
 
 .project-link-disabled {
@@ -265,8 +237,7 @@ body {
 
 .contact-item:hover {
     color: var(--light-gray);
-    transform: translateY(-5px);
-    text-shadow: 0 0 10px var(--razer-green-glow);
+    transform: translateY(-5px); /* Mantém a animação de movimento */
 }
 
 .contact-item[href*="wa.me"]:hover {
@@ -275,7 +246,6 @@ body {
 
 .contact-item:hover i {
     color: var(--razer-green);
-    filter: drop-shadow(0 0 8px var(--razer-green-glow));
 }
 
 .contact-item i {
@@ -295,7 +265,7 @@ body {
 .footer {
     text-align: center;
     padding: 2rem;
-    background-color: #111;
+    background-color: #000;
     border-top: 1px solid #333;
     font-size: 0.9rem;
     color: var(--mid-gray);
