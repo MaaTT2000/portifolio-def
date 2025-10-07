@@ -1,9 +1,10 @@
 /* Definição de variáveis de cor para fácil manutenção */
 :root {
     --razer-green: #44d62c;
+    --razer-green-glow: rgba(68, 214, 44, 0.5);
     --dark-charcoal: #1a1a1a; /* Um pouco mais suave que o preto puro */
     --light-gray: #f0f2f5; /* Um branco-gelo mais suave */
-    --mid-gray: #888888;
+    --mid-gray: #999;
 }
 
 /* Reset básico para garantir consistência entre navegadores */
@@ -18,9 +19,24 @@ html {
 }
 
 body {
-    background-color: var(--dark-charcoal);
+    background-color: #111; /* Um preto ainda mais profundo para o fundo */
     color: var(--light-gray);
     font-family: "Segoe UI", Roboto, -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
+    /* Animação de fundo sutil e oscilante */
+    background-image: radial-gradient(circle at 50% 50%, rgba(26, 26, 26, 0.9) 0%, #111 70%);
+    animation: subtle-pulse 15s infinite ease-in-out;
+}
+
+@keyframes subtle-pulse {
+    0% {
+        background-size: 100% 100%;
+    }
+    50% {
+        background-size: 150% 150%;
+    }
+    100% {
+        background-size: 100% 100%;
+    }
 }
 
 /* Estilo da Seção Hero */
@@ -37,7 +53,7 @@ body {
     font-size: clamp(2.5rem, 5vw, 4rem); /* Fonte responsiva */
     font-weight: 800;
     text-transform: uppercase;
-    letter-spacing: 0.1rem;
+    letter-spacing: 0.15rem;
 }
 
 .hero-subtitle {
@@ -71,12 +87,14 @@ body {
 .button-primary {
     border-color: var(--razer-green);
     color: var(--razer-green);
+    box-shadow: 0 0 10px rgba(68, 214, 44, 0);
 }
 
 .button-primary:hover {
     background-color: var(--razer-green);
     color: var(--dark-charcoal);
     transform: translateY(-3px);
+    box-shadow: 0 4px 20px var(--razer-green-glow);
 }
 
 .button-secondary {
@@ -87,6 +105,7 @@ body {
 .button-secondary:hover {
     border-color: var(--razer-green);
     color: var(--razer-green);
+    box-shadow: 0 4px 20px rgba(68, 214, 44, 0.2);
     transform: translateY(-3px);
 }
 
@@ -158,13 +177,14 @@ body {
     overflow: hidden;
     display: flex;
     flex-direction: column;
-    border: 1px solid #333;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 1px solid #3a3a3a;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
 }
 
 .project-card-wrapper:hover {
     transform: translateY(-10px);
-    box-shadow: 0 12px 24px -12px rgba(68, 214, 44, 0.5);
+    box-shadow: 0 12px 24px -12px var(--razer-green-glow);
+    border-color: var(--razer-green);
 }
 
 .project-card-wrapper .project-image {
@@ -246,6 +266,7 @@ body {
 .contact-item:hover {
     color: var(--light-gray);
     transform: translateY(-5px);
+    text-shadow: 0 0 10px var(--razer-green-glow);
 }
 
 .contact-item[href*="wa.me"]:hover {
@@ -254,6 +275,7 @@ body {
 
 .contact-item:hover i {
     color: var(--razer-green);
+    filter: drop-shadow(0 0 8px var(--razer-green-glow));
 }
 
 .contact-item i {
@@ -411,59 +433,6 @@ body {
     margin-bottom: 1rem;
     border: 1px solid #444;
 }
-
-/* =================================================================== */
-/*             ESTILOS ATUALIZADOS PARA OS CARDS DE PROJETO            */
-/* =================================================================== */
-
-/* Remove o sublinhado roxo e define o comportamento do card como um bloco */
-.project-card {
-    background-color: #252525;
-    border-radius: 8px;
-    overflow: hidden;
-    text-decoration: none; /* Remove o sublinhado */
-    color: var(--light-gray); /* Define a cor do texto padrão */
-    display: block; /* Faz o link se comportar como um bloco */
-    border: 1px solid #333;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-/* Efeito hover que já tínhamos */
-.project-card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 12px 24px -12px rgba(68, 214, 44, 0.5);
-}
-
-/* Garante que a imagem preencha o espaço corretamente */
-.project-card .project-image {
-    width: 100%;
-    height: 220px;
-    object-fit: cover;
-}
-
-/* Estilização da área de informações dentro do card */
-.project-card {
-    display: flex;
-    flex-direction: column;
-}
- .project-card .project-info {
-    padding: 1.5rem;
-    flex-grow: 1; /* Faz esta área crescer para preencher o espaço */
-}
-
-.project-card .project-info h3 {
-    margin-bottom: 0.5rem;
-    color: #fff; /* Título do projeto em branco */
-}
-
-.project-card .project-info p {
-    font-size: 1rem;
-    line-height: 1.5;
-    flex-grow: 1; /* Empurra o span para baixo */
-    color: var(--light-gray); /* Cor do parágrafo */
-}
-
-/* Estilo para o "Ver detalhes" */
 
 .image-caption {
     font-size: 0.9rem;
