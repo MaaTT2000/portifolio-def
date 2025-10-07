@@ -158,13 +158,16 @@ body {
     overflow: hidden;
     display: flex;
     flex-direction: column;
-    border: 1px solid #333;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 1px solid #3a3a3a;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+    /* Animação de pulso neon */
+    animation: neon-pulse 4s infinite ease-in-out;
 }
 
 .project-card-wrapper:hover {
     transform: translateY(-10px);
-    box-shadow: 0 12px 24px -12px rgba(68, 214, 44, 0.5);
+    box-shadow: 0 0 20px rgba(68, 214, 44, 0.6);
+    animation-play-state: paused; /* Pausa a animação no hover para um efeito mais limpo */
 }
 
 .project-card-wrapper .project-image {
@@ -192,6 +195,7 @@ body {
     font-size: 1rem;
     line-height: 1.5;
     flex-grow: 1;
+    color: var(--light-gray); /* CORREÇÃO: Garante que o texto não fique azul */
 }
 
 a {
@@ -287,6 +291,17 @@ a {
     animation: chroma-animation 10s linear infinite;
 }
 
+@keyframes neon-pulse {
+    0% {
+        box-shadow: 0 0 5px rgba(68, 214, 44, 0.2);
+    }
+    50% {
+        box-shadow: 0 0 15px rgba(68, 214, 44, 0.5);
+    }
+    100% {
+        box-shadow: 0 0 5px rgba(68, 214, 44, 0.2);
+    }
+}
 @keyframes chroma-animation {
     0% { background-position: 0% 50%; }
     50% { background-position: 100% 50%; }
