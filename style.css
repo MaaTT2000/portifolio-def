@@ -316,8 +316,20 @@ body {
 }
 
 /* Estilos para o Lightbox */
-.lb-data .lb-caption, .lb-data .lb-number {
-    color: #ccc;
+.lb-data .lb-number {
+    color: #ccc; /* Mantém a cor do número de imagens */
+    font-size: 0.9rem;
+}
+
+.lb-data .lb-caption {
+    font-size: 1rem;
+    font-weight: 500;
+    color: #fff; /* Texto branco para contrastar com o fundo */
+    background-color: rgba(17, 17, 17, 0.85); /* Fundo escuro semi-transparente */
+    padding: 0.75rem 1.25rem; /* Espaçamento interno */
+    border-radius: 6px; /* Bordas arredondadas */
+    line-height: 1.5;
+    backdrop-filter: blur(4px); /* Efeito de desfoque no fundo (suporte pode variar) */
 }
 
 /* Responsividade */
