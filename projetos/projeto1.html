@@ -79,40 +79,7 @@
 
 </body>
 </html>
-=======
-<!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Projeto: Gerador de DXF - Matheus Ribeiro</title>
-    
-    <!-- ATENÇÃO AOS CAMINHOS: usamos ../ para voltar um nível -->
-    <link rel="icon" type="image/x-icon" href="../favicon.ico">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <!-- CSS do Fancybox -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.css" />
-    <link rel="stylesheet" href="../style.css">
-</head>
 
-<body>
-    <!-- CABEÇALHO DA PÁGINA DO PROJETO -->
-    <header class="project-header">
-        <a href="../index.html#projects" class="back-to-portfolio-link">
-            <i class="fas fa-arrow-left"></i> Voltar para Projetos
-        </a>
-    </header>
-
-    <main>
-        <section class="project-detail-section">
-            <!-- TÍTULO DO PROJETO -->
-            <h1 class="project-detail-title">Gerador de DXF</h1>
-            <p class="project-detail-subtitle">Uma ferramenta web para automação de desenhos técnicos.</p>
-
-            <!-- CONTEÚDO PRINCIPAL DO PROJETO -->
-            <div class="project-detail-content">
-                <!-- Coluna de Imagens -->
-                <div class="project-image-gallery">
                     <!-- ========================================================== -->
                     <!--      COMO ADICIONAR UM VÍDEO (YOUTUBE/VIMEO) AQUI:      -->
                     <!-- ========================================================== -->
@@ -125,66 +92,4 @@
                         <a href="https://www.youtube.com/watch?v=ID_DO_SEU_VIDEO" data-fancybox="gerador-dxf-gallery" data-caption="Demonstração em Vídeo do Gerador de DXF">
                             <img src="../caminho/para/thumbnail_do_video.jpg" alt="Thumbnail do vídeo de demonstração">
                         </a> 
-                    -->
-                    <a href="../gerador1.png" data-fancybox="gerador-dxf-gallery" data-caption="Tela principal da aplicação.">
-                        <img src="../gerador1.png" alt="Visão geral da interface do Gerador de DXF">
-                    </a>
-                    <p class="image-caption">Tela principal da aplicação.</p>
                     
-                    <a href="../interface-pt2.png" data-fancybox="gerador-dxf-gallery" data-caption="Detalhe da funcionalidade de furação automática / furação manual.">
-                        <img src="../interface-pt2.png" alt="Detalhe de uma funcionalidade">
-                    </a>
-                    <p class="image-caption">Detalhe da funcionalidade de furação automática / furação manual.</p>
-
-                    <a href="../interface-pt3.png" data-fancybox="gerador-dxf-gallery" data-caption="Opção para atribuir bloco de informações nas peças (Calcula peso com base na espessura).">
-                        <img src="../interface-pt3.png" alt="Detalhe de uma funcionalidade">
-                    </a>
-                    <p class="image-caption">Opção para atribuir bloco de informações nas peças (Calcula peso com base na espessura).</p>
-                </div>
-
-                <!-- Coluna de Texto e Informações -->
-                <div class="project-text-details">
-                    <h2>O Desafio</h2>
-                    <p>
-                        A criação manual de arquivos DXF para peças simples e repetitivas era um processo demorado e propenso a erros, consumindo horas valiosas de engenheiros e projetistas. O objetivo era criar uma solução que automatizasse essa tarefa.
-                    </p>
-
-                    <h2>A Solução</h2>
-                    <p>
-                        Desenvolvi uma aplicação web com uma interface intuitiva onde o usuário pode inserir parâmetros como dimensões, furos e offsets. O front-end (HTML, CSS, JS) captura esses dados e os envia para um backend em Python (usando Flask/Django) que processa as informações e gera um arquivo .DXF válido, pronto para download e uso em máquinas CNC.
-                    </p>
-
-                    <div class="tech-stack">
-                        <h3>Tecnologias Utilizadas:</h3>
-                        <ul>
-                            <li><i class="fab fa-html5"></i> HTML5</li>
-                            <li><i class="fab fa-css3-alt"></i> CSS3</li>
-                            <li><i class="fab fa-js"></i> JavaScript</li>
-                            <li><i class="fab fa-python"></i> Python</li>
-                            <li><span>⚙️</span> Biblioteca Ezdxf</li>
-                        </ul>
-                    </div>
-
-                    <a href="https://github.com/MaaTT2000/gerador-de-dxf" target="_blank" class="button button-primary">
-                        <i class="fab fa-github"></i> Ver Código no GitHub
-                    </a>
-                </div>
-            </div>
-        </section>
-    </main>
-
-    <!-- RODAPÉ - Idêntico ao da página principal -->
-    <footer class="footer">
-        <div class="chroma-line"></div>
-        <p>© 2025 Matheus A Ribeiro. Todos os direitos reservados.</p>
-    </footer>
-
-    <!-- SCRIPT DO FANCYBOX -->
-    <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.umd.js"></script>
-    <script>
-        // Inicializa o Fancybox na página
-        Fancybox.bind("[data-fancybox]", {});
-    </script>
-</body>
-</html>
->>>>>>> refs/remotes/origin/main:projetos/projeto1.html
