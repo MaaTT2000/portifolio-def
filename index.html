@@ -17,6 +17,8 @@
 
     <!-- ARQUIVOS CSS E FONTES -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- CSS do Fancybox (substituindo o Lightbox) -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.css" />
     <link rel="stylesheet" href="style.css">
 </head>
 
@@ -60,34 +62,82 @@
             <h2 class="section-title">PROJETOS</h2>
             <div class="project-gallery">
                 <!-- Projeto 1 -->
-                <a href="projetos/gerador-dxf.html" class="project-card">
-                    <img src="gerador1.png" alt="Interface do Gerador de DXF" class="project-image">
-                    <div class="project-info">
-                        <h3>Gerador de DXF</h3> <!-- Vetor Creator -->
-                        <p>Utilizado HTML / CSS / JS / PYTHON.</p>
-                        <span>Ver detalhes →</span>
-                    </div>
-                </a>
+                <div class="project-card-wrapper">
+                    <a href="gerador1.png" data-fancybox="gallery-gerador" data-caption="Interface do Gerador de DXF">
+                        <img src="gerador1.png" alt="Interface do Gerador de DXF" class="project-image">
+                    </a>
+                    <a href="projetos/projeto1.html" class="project-card">
+                        <div class="project-info">
+                            <h3>Gerador de DXF</h3>
+                            <p>Ferramenta web para automação de desenhos técnicos.</p>
+                            <span class="project-link">Ver detalhes →</span>
+                        </div>
+                    </a>
+                </div>
 
                 <!-- Projeto 2 -->
-                <a href="projetos/analisador-dxf.html" class="project-card">
-                    <img src="interface2.jpeg" alt="Interface do Analisador de DXF" class="project-image">
-                    <div class="project-info">
-                        <h3>Analisador de DXF </h3> <!-- Vetor Inspector -->
-                        <p>Executável feito em python para análise de desenhos para corte em máquinas de 3 eixos (CNC).</p>
-                        <span>Ver detalhes →</span>
-                    </div>
-                </a>
+                <div class="project-card-wrapper">
+                    <a href="interface2.jpeg" data-fancybox="gallery-analisador" data-caption="Interface do Analisador de DXF">
+                        <img src="interface2.jpeg" alt="Interface do Analisador de DXF" class="project-image">
+                    </a>
+                    <a href="projetos/projeto2.html" class="project-card"> 
+                        <div class="project-info">
+                            <h3>Analisador de DXF</h3>
+                            <p>Aplicação desktop para validação de desenhos para corte CNC.</p>
+                            <span class="project-link">Ver detalhes →</span>
+                        </div>
+                    </a>
+                </div>
 
                 <!-- Projeto 3 -->
-                <a href="projetos/planilha-aproveitamento.html" class="project-card">
-                    <img src="interface3.png" alt="Preview da Planilha de Aproveitamento" class="project-image">
-                    <div class="project-info">
+                <div class="project-card-wrapper">
+                    <a href="interface3.png" data-fancybox="gallery-sda" data-caption="Preview do Sistema de Desenho Automatizado">
+                        <img src="interface3.png" alt="Preview da Planilha de Aproveitamento" class="project-image">
+                    </a>
+                    <a href="projetos/projeto3.html" class="project-card">
+                        <div class="project-info">
                         <h3>Sistema de Desenho Automatizado (SDA)</h3>
-                        <p>A plataforma que automatiza seus desenhos, otimiza planos de corte e gera orçamentos precisos em segundos.</p>
-                        <span>Ver detalhes →</span>
-                    </div>
-                </a>
+                        <p>Plataforma que automatiza desenhos, otimiza planos de corte e gera orçamentos.</p>
+                        <span class="project-link">Ver detalhes →</span>
+                        </div>
+                    </a>
+                </div>
+
+                <!-- ========================================================== -->
+                <!--      PLACEHOLDER PARA NOVOS PROJETOS (COPIE E COLE)      -->
+                <!-- ========================================================== -->
+
+                <!-- Novo Projeto 4 (Placeholder) -->
+                <div class="project-card-wrapper">
+                    <!-- Imagem de placeholder. Troque o 'href' pela sua imagem. -->
+                    <a href="https://via.placeholder.com/800x600.png/252525/888888?text=Em+Breve" data-fancybox="gallery-novo-1" data-caption="Preview do novo projeto">
+                        <img src="https://via.placeholder.com/800x600.png/252525/888888?text=Em+Breve" alt="Projeto em breve" class="project-image">
+                    </a>
+                    <!-- Troque o 'href' para o novo arquivo .html do projeto -->
+                    <a href="#" class="project-card">
+                        <div class="project-info">
+                            <h3>Novo Projeto</h3>
+                            <p>Descrição do novo projeto em breve...</p>
+                            <span class="project-link-disabled">Em breve</span>
+                        </div>
+                    </a>
+                </div>
+
+                <!-- Novo Projeto 5 (Placeholder) -->
+                <div class="project-card-wrapper">
+                    <!-- Imagem de placeholder. Troque o 'href' pela sua imagem. -->
+                    <a href="https://via.placeholder.com/800x600.png/252525/888888?text=Em+Breve" data-fancybox="gallery-novo-2" data-caption="Preview do novo projeto">
+                        <img src="https://via.placeholder.com/800x600.png/252525/888888?text=Em+Breve" alt="Projeto em breve" class="project-image">
+                    </a>
+                    <!-- Troque o 'href' para o novo arquivo .html do projeto -->
+                    <a href="#" class="project-card">
+                        <div class="project-info">
+                            <h3>Outro Projeto Incrível</h3>
+                            <p>Mais detalhes sobre esta solução em breve...</p>
+                            <span class="project-link-disabled">Em breve</span>
+                        </div>
+                    </a>
+                </div>
             </div>
         </section>
 
@@ -106,7 +156,7 @@
                     <i class="fab fa-whatsapp"></i>
                     <span>WhatsApp</span>
                 </a>
-                <a href="https://www.linkedin.com/in/matheus-augusto-ribeiro-dos-santos-bbb894237/" target="_blank" class="contact-item" title="Ver meu LinkedIn">
+                <a href="https://www.linkedin.com/in/matheus-ribeiro-bbb894237/" target="_blank" class="contact-item" title="Ver meu LinkedIn">
                     <i class="fab fa-linkedin"></i>
                     <span>LinkedIn</span>
                 </a>
@@ -127,7 +177,8 @@
     <!-- BOTÃO VOLTAR AO TOPO -->
     <a id="back-to-top" href="#" title="Voltar ao topo">↑</a>
     
-    <!-- SCRIPT PRINCIPAL (Sem Lightbox) -->
+    <!-- SCRIPT DO FANCYBOX (não precisa de jQuery) -->
+    <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.umd.js"></script>
     <script src="main.js"></script>
 
 </body>

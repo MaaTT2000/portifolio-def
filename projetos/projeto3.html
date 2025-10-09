@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- TÍTULO ATUALIZADO -->
+    <title>Projeto: Sistema de Desenho Automatizado (SDA)/title></title>
+    
+    <link rel="icon" type="image/x-icon" href="../favicon.ico">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <!-- CSS do Fancybox -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.css" />
+    <link rel="stylesheet" href="../style.css">
+</head>
+
+<body>
+    <header class="project-header">
+        <a href="../index.html#projects" class="back-to-portfolio-link">
+            <i class="fas fa-arrow-left"></i> Voltar para Projetos
+        </a>
+    </header>
+
+    <main>
+        <section class="project-detail-section">
+            <!-- TÍTULO E SUBTÍTULO ATUALIZADOS -->
+            <h1 class="project-detail-title">Sistema de Desenho Automatizado (SDA)</h1>
+            <p class="project-detail-subtitle">App para geracao de desenhos DXF / PDF</p>
+
+            <div class="project-detail-content">
+                <!-- GALERIA DE IMAGENS ATUALIZADA -->
+                <div class="project-image-gallery">
+                    <!-- Imagem 1 -->
+                    <a href="../interface3p2.png" data-fancybox="sda-gallery" data-caption="Interface Principal com os botoes para iniciar um novo projeto ou editar algum existente">
+                        <img src="../interface3p2.png" alt="Visão geral da aplicação de otimização">
+                    </a>
+                    <p class="image-caption">Interface Principal com os botoes para iniciar um novo projeto ou editar algum existente</p>
+                    
+                    <!-- Imagem 2 -->
+                    <a href="../interface3-pt2.png" data-fancybox="sda-gallery" data-caption="Tela com o projeto já iniciado, as peças no projeto são apresentadas em uma lista">
+                        <img src="../interface3-pt2.png" alt="Detalhe do cadastro de peças">
+                    </a>
+                    <p class="image-caption">Tela com o projeto já iniciado, as peças no projeto são apresentadas em uma lista</p>
+                    
+                    <!-- Imagem 3 -->
+                    <a href="../interface33.png" data-fancybox="sda-gallery" data-caption="Desenvolvimento de API para Otimização de Matéria-Prima (Nesting 2D) com Python e Rectpack">
+                        <img src="../interface33.png" alt="Visualização do plano de corte">
+                    </a>
+                    <p class="image-caption">Desenvolvimento de API para Otimização de Matéria-Prima (Nesting 2D) com Python e Rectpack</p>
+                </div>
+                
+                <!-- Coluna de Texto e Informações -->
+                <div class="project-text-details">
+                    <h2>O Desafio</h2>
+                    <p>
+                       Nosso principal desafio era a elaboração de um grande volume de desenhos técnicos, um processo manual, repetitivo e propenso a erros.
+                    </p>
+
+                    <h2>A Solução</h2>
+                    <p>
+                        Como resultado direto da automação, alcançamos um ganho de eficiência massivo: o tempo necessário para o ciclo completo de desenho foi reduzido em mais de 60%. Isso permitiu não apenas aumentar a vazão de projetos, mas também realocar nossa equipe para atividades mais estratégicas e de maior valor agregado.
+                    </p>
+
+                    <!-- TECNOLOGIAS ATUALIZADAS -->
+                    <div class="tech-stack">
+                        <h3>Tecnologias Utilizadas:</h3>
+                        <ul>
+                            <li><i class="fab fa-python"></i> Python</li>
+                            <li><i class="fas fa-desktop"></i> Tkinter (GUI)</li>
+                            <li><i class="fas fa-desktop"></i> Rectpack (Biblioteca Python)</li>
+                            <li><i class="fas fa-desktop"></i> Pandas (Biblioteca Python)</li>
+                        </ul>
+                    </div>
+                    
+                    <!-- Se não houver link para o GitHub, você pode omitir o botão ou linkar para um artigo explicando o projeto -->
+                    <a href="https://github.com/zuckalez0-oss/gerador_de_desenhos_pdf" target="_blank" class="button button-primary">Ver Código no GitHub</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="chroma-line"></div>
+        <p>© 2025 Matheus A Ribeiro. Todos os direitos reservados.</p>
+    </footer>
+
+    <!-- SCRIPT DO FANCYBOX -->
+    <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.umd.js"></script>
+    <script>
+        // Inicializa o Fancybox na página
+        Fancybox.bind("[data-fancybox]", {});
+    </script>
+</body>
+</html>

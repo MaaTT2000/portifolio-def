@@ -1,8 +1,8 @@
 /* Definição de variáveis de cor para fácil manutenção */
 :root {
     --razer-green: #44d62c;
-    --dark-charcoal: #111111;
-    --light-gray: #e5e7eb;
+    --dark-charcoal: #1a1a1a; /* Um pouco mais suave que o preto puro */
+    --light-gray: #f0f2f5; /* Um branco-gelo mais suave */
     --mid-gray: #888888;
 }
 
@@ -20,7 +20,7 @@ html {
 body {
     background-color: var(--dark-charcoal);
     color: var(--light-gray);
-    font-family: "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    font-family: "Segoe UI", Roboto, -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
 }
 
 /* Estilo da Seção Hero */
@@ -34,15 +34,15 @@ body {
 }
 
 .hero-title {
-    font-size: 3.5rem;
+    font-size: clamp(2.5rem, 5vw, 4rem); /* Fonte responsiva */
     font-weight: 800;
     text-transform: uppercase;
-    letter-spacing: 0.2rem;
+    letter-spacing: 0.1rem;
 }
 
 .hero-subtitle {
-    margin-top: 1rem;
-    font-size: 1.25rem;
+    margin-top: 1.5rem;
+    font-size: clamp(1.1rem, 2.5vw, 1.35rem);
     font-weight: 600;
     color: var(--razer-green);
 }
@@ -61,7 +61,7 @@ body {
     text-decoration: none;
     font-weight: bold;
     text-transform: uppercase;
-    letter-spacing: 0.1rem;
+    letter-spacing: 0.08rem;
     transition: all 0.3s ease;
     display: inline-flex; /* Para alinhar o ícone com o texto */
     align-items: center;
@@ -76,6 +76,7 @@ body {
 .button-primary:hover {
     background-color: var(--razer-green);
     color: var(--dark-charcoal);
+    transform: translateY(-3px);
 }
 
 .button-secondary {
@@ -86,6 +87,7 @@ body {
 .button-secondary:hover {
     border-color: var(--razer-green);
     color: var(--razer-green);
+    transform: translateY(-3px);
 }
 
 /* Estilos Gerais para Seções de Conteúdo */
@@ -108,7 +110,7 @@ body {
     font-size: 2.5rem;
     font-weight: 700;
     text-transform: uppercase;
-    letter-spacing: 0.15rem;
+    letter-spacing: 0.1rem;
     margin-bottom: 4rem;
     color: var(--razer-green);
 }
@@ -134,7 +136,7 @@ body {
 
 .about-text-content p {
     font-size: 1.1rem;
-    line-height: 1.7;
+    line-height: 1.8; /* Melhor legibilidade */
     color: var(--light-gray);
 }
 
@@ -143,7 +145,7 @@ body {
     display: inline-flex;
 }
 
-/* Estilos da Galeria de Projetos com Lightbox */
+/* Estilos da Galeria de Projetos */
 .project-gallery {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
@@ -151,18 +153,21 @@ body {
 }
 
 .project-card-wrapper {
-    background-color: #222;
+    background-color: #252525;
     border-radius: 8px;
     overflow: hidden;
     display: flex;
     flex-direction: column;
-    border: 1px solid #333;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 1px solid #3a3a3a;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+    /* Animação de pulso neon */
+    animation: neon-pulse 4s infinite ease-in-out;
 }
 
 .project-card-wrapper:hover {
     transform: translateY(-10px);
-    box-shadow: 0 10px 30px -10px var(--razer-green);
+    box-shadow: 0 0 20px rgba(68, 214, 44, 0.6);
+    animation-play-state: paused; /* Pausa a animação no hover para um efeito mais limpo */
 }
 
 .project-card-wrapper .project-image {
@@ -171,10 +176,6 @@ body {
     object-fit: cover;
     cursor: pointer;
     transition: transform 0.3s ease;
-}
-
-.project-card-wrapper a:hover .project-image {
-    transform: scale(1.05);
 }
 
 .project-info {
@@ -187,25 +188,32 @@ body {
 .project-info h3 {
     font-size: 1.5rem;
     margin-bottom: 0.5rem;
-    color: #fff;
+    color: var(--light-gray);
 }
 
 .project-info p {
     font-size: 1rem;
     line-height: 1.5;
     flex-grow: 1;
+    color: var(--light-gray); /* CORREÇÃO: Garante que o texto não fique azul */
 }
 
-.project-link, .project-link-disabled {
+a {
+  text-decoration: none;
+}
+.project-link,
+.project-link-disabled {
     color: var(--razer-green);
     font-weight: bold;
     text-decoration: none;
-    display: inline-block;
+    display: block;
     margin-top: 1rem;
+    transition: color 0.3s ease;
 }
 
-.project-link:hover {
-    text-decoration: underline;
+.project-link-disabled {
+    color: var(--mid-gray);
+    cursor: not-allowed;
 }
 
 /* Estilos da Seção de Contato */
@@ -235,16 +243,21 @@ body {
 }
 
 .contact-item:hover {
-    color: var(--razer-green);
-    transform: translateY(-5px);
+    color: var(--light-gray);
+    transform: translateY(-5px); /* Mantém a animação de movimento */
 }
 
 .contact-item[href*="wa.me"]:hover {
     color: #25D366;
 }
 
+.contact-item:hover i {
+    color: var(--razer-green);
+}
+
 .contact-item i {
     font-size: 3rem;
+    transition: color 0.3s ease;
 }
 
 .contact-item span {
@@ -278,6 +291,17 @@ body {
     animation: chroma-animation 10s linear infinite;
 }
 
+@keyframes neon-pulse {
+    0% {
+        box-shadow: 0 0 5px rgba(68, 214, 44, 0.2);
+    }
+    50% {
+        box-shadow: 0 0 15px rgba(68, 214, 44, 0.5);
+    }
+    100% {
+        box-shadow: 0 0 5px rgba(68, 214, 44, 0.2);
+    }
+}
 @keyframes chroma-animation {
     0% { background-position: 0% 50%; }
     50% { background-position: 100% 50%; }
@@ -308,9 +332,14 @@ body {
     visibility: visible;
 }
 
-/* Estilos para o Lightbox */
-.lb-data .lb-caption, .lb-data .lb-number {
-    color: #ccc;
+/* Estilos para a nova galeria (Fancybox) */
+.fancybox__caption {
+    background-color: rgba(17, 17, 17, 0.85) !important;
+    backdrop-filter: blur(4px);
+    padding: 1rem !important;
+    border-radius: 6px;
+    color: var(--light-gray);
+    font-size: 1rem;
 }
 
 /* Responsividade */
@@ -326,44 +355,6 @@ body {
     .project-gallery {
         grid-template-columns: 1fr;
     }
-}
-
-/* style.css */
-
-/* ... (seu CSS existente) ... */
-
-/* Garantias para a visibilidade do botão de fechar do Lightbox */
-.lb-outerContainer .lb-close {
-    opacity: 0 !important; /* Garante que seja visível */
-    transition: opacity 0.3s ease;
-}
-
-.lb-outerContainer .lb-close:hover {
-    opacity: 1 !important; /* Totalmente visível no hover */
-}
-
-/* =================================================================== */
-/*          CORREÇÃO DE POSICIONAMENTO PARA O LIGHTBOX                 */
-/* =================================================================== */
-
-/* Garante que o fundo preto (overlay) cubra toda a tela e fique no topo */
-#lightboxOverlay {
-    position: fixed !important; /* Força o posicionamento fixo na tela */
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: 9998; /* Um z-index muito alto */
-    transform: none !important; /* Remove qualquer transform herdado */
-}
-
-/* Garante que o container da imagem fique centralizado e no topo */
-#lightbox {
-    position: fixed !important; /* Força o posicionamento fixo */
-    top: 50% !important;
-    left: 50% !important;
-    transform: translate(-50%, -50%) !important; /* Técnica clássica de centralização */
-    z-index: 9999; /* Z-index ainda mais alto que o overlay */
 }
 
 /* Garante que a imagem em si não tenha transforms estranhos */
@@ -402,10 +393,11 @@ body {
 }
 
 .project-detail-title {
-    font-size: 3rem;
+    font-size: clamp(2.2rem, 5vw, 3rem); /* Fonte responsiva para evitar quebra */
     font-weight: 800;
     text-transform: uppercase;
     color: var(--razer-green);
+    letter-spacing: 0.1rem;
     text-align: center;
 }
 
@@ -430,59 +422,6 @@ body {
     border: 1px solid #444;
 }
 
-/* =================================================================== */
-/*             ESTILOS ATUALIZADOS PARA OS CARDS DE PROJETO            */
-/* =================================================================== */
-
-/* Remove o sublinhado roxo e define o comportamento do card como um bloco */
-.project-card {
-    background-color: #222;
-    border-radius: 8px;
-    overflow: hidden;
-    text-decoration: none; /* Remove o sublinhado */
-    color: var(--light-gray); /* Define a cor do texto padrão */
-    display: block; /* Faz o link se comportar como um bloco */
-    border: 1px solid #333;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-/* Efeito hover que já tínhamos */
-.project-card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 10px 30px -10px var(--razer-green);
-}
-
-/* Garante que a imagem preencha o espaço corretamente */
-.project-card .project-image {
-    width: 100%;
-    height: 220px;
-    object-fit: cover;
-}
-
-/* Estilização da área de informações dentro do card */
-.project-card .project-info {
-    padding: 1.5rem;
-}
-
-.project-card .project-info h3 {
-    font-size: 1.5rem;
-    margin-bottom: 0.5rem;
-    color: #fff; /* Título do projeto em branco */
-}
-
-.project-card .project-info p {
-    font-size: 1rem;
-    line-height: 1.5;
-    margin-bottom: 1rem;
-    color: var(--light-gray); /* Cor do parágrafo */
-}
-
-/* Estilo para o "Ver detalhes" */
-.project-card .project-info span {
-    color: var(--razer-green);
-    font-weight: bold;
-}
-
 .image-caption {
     font-size: 0.9rem;
     color: var(--mid-gray);
@@ -505,7 +444,7 @@ body {
 }
 
 .tech-stack {
-    background-color: #222;
+    background-color: #252525;
     padding: 1.5rem;
     border-radius: 8px;
     margin-bottom: 2rem;
