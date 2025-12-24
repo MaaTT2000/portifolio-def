@@ -480,3 +480,93 @@ a {
         grid-template-columns: 1fr;
     }
 }
+
+/* =========================================
+   ESTILOS DA SEÇÃO SKILLS / TECNOLOGIAS
+   ========================================= */
+
+.skills-container {
+    display: grid;
+    /* Cria colunas automáticas com largura mínima de 130px */
+    grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+    gap: 20px;
+    margin-top: 40px;
+    justify-content: center;
+    max-width: 1000px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.skill-card {
+    background-color: #1e1e1e; /* Fundo escuro leve */
+    border: 1px solid #333;
+    border-radius: 12px;
+    padding: 25px 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    transition: all 0.3s ease;
+    cursor: default;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Tamanho e estilo base do ícone */
+.skill-card i {
+    font-size: 3rem;
+    color: #888; /* Cor padrão cinza */
+    transition: all 0.3s ease;
+    z-index: 2;
+}
+
+/* Texto da habilidade */
+.skill-name {
+    font-size: 1rem;
+    font-weight: 600;
+    color: #ccc;
+    z-index: 2;
+    transition: color 0.3s ease;
+}
+
+/* === EFEITOS DE HOVER (CRIATIVIDADE) === */
+
+.skill-card:hover {
+    transform: translateY(-5px); /* Levanta levemente o card */
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+    border-color: rgba(255, 255, 255, 0.1);
+}
+
+.skill-card:hover .skill-name {
+    color: #fff;
+}
+
+/* Cores específicas para cada tecnologia no Hover */
+
+/* Python - Azul e Amarelo */
+.skill-card.python:hover i { color: #3776AB; }
+.skill-card.python:hover { border-bottom: 3px solid #3776AB; }
+
+/* Java - Vermelho/Laranja */
+.skill-card.java:hover i { color: #f89820; }
+.skill-card.java:hover { border-bottom: 3px solid #f89820; }
+
+/* JavaScript - Amarelo */
+.skill-card.js:hover i { color: #F7DF1E; }
+.skill-card.js:hover { border-bottom: 3px solid #F7DF1E; }
+
+/* HTML - Laranja */
+.skill-card.html:hover i { color: #E34F26; }
+.skill-card.html:hover { border-bottom: 3px solid #E34F26; }
+
+/* CSS - Azul */
+.skill-card.css:hover i { color: #1572B6; }
+.skill-card.css:hover { border-bottom: 3px solid #1572B6; }
+
+/* Responsividade para telas pequenas */
+@media (max-width: 600px) {
+    .skills-container {
+        grid-template-columns: repeat(2, 1fr); /* 2 colunas no celular */
+    }
+}
